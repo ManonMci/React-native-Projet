@@ -1,0 +1,91 @@
+{
+    "activities": [
+      {
+        "id": "1",
+        "coverUri": "https://vertical-project.com/wp-content/uploads/2022/04/Affiche-PETITE-BULLES.png",
+        "link": "https://vertical-project.com/jeparticipe-vertical-bulles/"
+      },
+      {
+        "id": "2",
+        "coverUri": "https://vertical-project.com/wp-content/uploads/2022/05/Atelier-10-septembre-format-event.png",
+        "link": "https://vertical-project.com/oser-entreprendre-dans-un-monde-vica/"
+      },
+      {
+        "id": "3",
+        "coverUri": "https://vertical-project.com/wp-content/uploads/2022/04/La-spiritualite%CC%81-une-puissance-de-gue%CC%81rison-event.png",
+        "link": "https://vertical-project.com/la-spiritualite-puissance-guerison/"
+      }
+    ],
+    "distanciel": [
+      {
+        "id": "4",
+        "coverUri": "https://vertical-project.com/wp-content/uploads/2022/04/Les-batisseurs-de-lancien-monde-patrice-pouillard-event_.png",
+        "link": "https://vertical-project.com/dieu-la-science-les-preuves/"
+      },
+      {
+        "id": "5",
+        "coverUri": "https://vertical-project.com/wp-content/uploads/2022/04/Les-batisseurs-de-lancien-monde-patrice-pouillard-event_.png",
+        "link": "https://vertical-project.com/les-batisseurs-de-lanciens-monde/"
+      },
+      {
+        "id": "6",
+        "coverUri": "https://vertical-project.com/wp-content/uploads/2022/04/format-e%CC%81Phe%CC%81nome%CC%80nes-et-si-notre-re%CC%81alite%CC%81-e%CC%81tait-un-re%CC%82ve-romuald-leterrier-et-laurent-kasprowicz-event-449x400-1.png",
+        "link": ""
+      },
+      {
+        "id": "7",
+        "coverUri": "https://vertical-project.com/wp-content/uploads/2022/05/Le-temps-des-choix-480-%C3%97-428-px.png",
+        "link": ""
+      },
+      {
+        "id": "8",
+        "coverUri": "https://vertical-project.com/wp-content/uploads/2022/04/Boris-Cyrulnik-pre%CC%81s-de-la-mort-confe%CC%81rence-event-1.png",
+        "link": ""
+      },
+      {
+        "id": "9",
+        "coverUri": "https://vertical-project.com/wp-content/uploads/2022/04/re%CC%81habiliter-le%CC%82tre-et-la-conscience-pour-se-soigner-luc-bodin-event.png",
+        "link": ""
+      },
+      {
+        "id": "10",
+        "coverUri": "https://vertical-project.com/wp-content/uploads/2022/05/la-memoire-de-lunivers-Patrice-Van-Eersel-event.png",
+        "link": ""
+      },
+      {
+        "id": "11",
+        "coverUri": "https://vertical-project.com/wp-content/uploads/2022/04/la-science-la-matie%CC%80re-et-la-spiritualite%CC%81-jeanne-Ayache-event.png",
+        "link": ""
+      },
+      {
+        "id": "12",
+        "coverUri": "https://vertical-project.com/wp-content/uploads/2022/05/les-nouvelles-the%CC%81rapies-psyche%CC%81de%CC%81liques-olivier-chambon-event.png",
+        "link": ""
+      }
+    ],
+    "dernierEvenement": [
+      {
+        "id": "13",
+        "coverUri": "https://vertical-project.com/wp-content/uploads/2022/04/Dieu-la-science-les-preuves-olivier-bonnassies.png",
+        "link": "https://vertical-project.com/dieu-la-science-les-preuves/"
+      },
+      {
+        "id": "14",
+        "coverUri": "https://vertical-project.com/wp-content/uploads/2022/03/Sans-titre.png",
+        "link": "https://vertical-project.com/wp-content/uploads/2022/03/Sans-titre.png"
+      },
+      {
+        "id": "15",
+        "coverUri": "https://vertical-project.com/wp-content/uploads/2022/05/Boris-Cyrulnik-pre%CC%81s-de-la-mort-confe%CC%81rence-png.png",
+        "link": "https://vertical-project.com/wp-content/uploads/2022/05/Boris-Cyrulnik-pre%CC%81s-de-la-mort-confe%CC%81rence-png.png"
+      },
+      {
+        "id": "16",
+        "coverUri": "https://vertical-project.com/wp-content/uploads/2022/04/format-presentation-56.png",
+        "link": "https://vertical-project.com/wp-content/uploads/2022/04/format-presentation-56.png"
+      }
+    ]
+  }
+
+  
+  

@@ -1,0 +1,58 @@
+{
+    "activities": [
+      {
+        "id": "1",
+        "coverUri": "https://img.freepik.com/photos-gratuite/prise-vue-au-grand-angle-seul-arbre-poussant-sous-ciel-assombri-pendant-coucher-soleil-entoure-herbe_181624-22807.jpg?w=1380&t=st=1652803615~exp=1652804215~hmac=29d3b908fbad8e8dcc18f6102c4ef1d486183ba60bcfaa1ae6489b1bcfa49d1b"
+      },
+      {
+        "id": "2",
+        "coverUri": "https://img.freepik.com/photos-gratuite/femme-adulte-montrant-outil-meditation-pre_1157-49979.jpg?t=st=1652804031~exp=1652804631~hmac=6fda21c7a9c950debba24eb5b20dfc53291461c4316c5049a457e6320ee04eea&w=1380"
+      },
+      {
+        "id": "3",
+        "coverUri": "https://img.freepik.com/photos-gratuite/profil-tete-homme-barbu-neurones-symbole-dans-cerveau-penser-comme-etoiles-cosmos-interieur-homme-ciel-nocturne_125374-98.jpg?w=2000"
+      },
+      {
+        "id": "4",
+        "coverUri": "https://as1.ftcdn.net/v2/jpg/03/65/09/34/1000_F_365093447_6gPShfprR6Xc4UjO1i2WbdtTBBk3uB1r.jpg"
+      },
+      {
+        "id": "5",
+        "coverUri": "https://img.freepik.com/photos-gratuite/personne-menant-therapie-reiki_23-2149403926.jpg?w=740&t=st=1652878975~exp=1652879575~hmac=ca6f7dcf830dbfc9ad879d6701615adb20daf02a284688210b5e893ecc82f685"
+      },
+      {
+        "id": "6",
+        "coverUri": "https://img.freepik.com/photos-gratuite/portrait-femme-caucasienne-placide-dans-couvre-chef-pratiquant-mediation-avant-rituel-magique_259150-56702.jpg?w=1380"
+      },
+      {
+        "id": "7",
+        "coverUri": "https://img.freepik.com/photos-gratuite/connexions-globales_53876-89039.jpg?w=1380&t=st=1652880053~exp=1652880653~hmac=01e9c86f3d87b4605d1d2885361ba864e9365fed57b540eaf326e81ecba1a6d1"
+      },
+      {
+        "id": "8",
+        "coverUri": "https://img.freepik.com/photos-gratuite/celebre-eglise-lyon-saone-nuit_268835-1054.jpg?t=st=1652805404~exp=1652806004~hmac=d669a92f5674c8fa4082057e932f17467ed0ad3b197f13e902d5a9d7adf928f8&w=1400"
+      },
+      {
+        "id": "9",
+        "coverUri": "https://t4.ftcdn.net/jpg/02/75/81/81/240_F_275818149_uWFQBQ8wHA81PSGn85LTSlQRyU5qTckE.jpg"
+      },
+      {
+        "id": "10",
+        "coverUri": "https://img.freepik.com/photos-gratuite/gros-plan-femme-meditant-position-du-lotus-au-coucher-du-soleil_637285-5481.jpg?w=1380&t=st=1652807511~exp=1652808111~hmac=5660b686cd14e623e0a5a76839e69958b437c6906f79df411b840a01cfe31b6a"
+      }
+
+    ],
+    "Evenement": [
+      {
+        "id": "11",
+        "coverUri": "https://cefii-developpements.fr/pierrefrancois1075/assets/RN_logo.png"
+      },
+      {
+        "id": "12",
+        "coverUri": "https://cefii-developpements.fr/pierrefrancois1075/assets/Flutter_logo.png"
+      }
+    ]
+  }
+
+  
+  
