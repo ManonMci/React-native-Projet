@@ -12,9 +12,10 @@ const {height} = Dimensions.get('window');
 
 const Register = () => {
     const [formData, setData] = useState({
+      email: '',
       username: '',
       password: '',
-      password_confirmation: '',
+      password_verify: '',
     });
     const [errors, setErrors] = useState(
      ''
@@ -60,6 +61,12 @@ const Register = () => {
               <FormControl.Label isRequired>Email</FormControl.Label>
               <Input 
               type="mail"
+              onChangeText={value => setData({...formData, email: value})} />
+            </FormControl>
+            <FormControl>
+              <FormControl.Label isRequired>Username</FormControl.Label>
+              <Input 
+              type="username"
               onChangeText={value => setData({...formData, username: value})} />
             </FormControl>
             <FormControl>
@@ -74,14 +81,12 @@ const Register = () => {
               <FormControl.Label isRequired>Confirmer le mot de passe</FormControl.Label>
               <Input 
               type="password" 
-              onChangeText={value => setData({...formData, password_confirmation: value})}
+              onChangeText={value => setData({...formData, password_verify: value})}
               />
                {errors}
             </FormControl>
             <HStack space={6}>
-      <Checkbox shadow={2} value="test" accessibilityLabel="This is a dummy checkbox" defaultIsChecked>
-        I accept the terms & conditions
-      </Checkbox>
+      
     </HStack>
             <Button onPress={async () => onSubmit()} mt="2" colorScheme="indigo">
               S'inscrire

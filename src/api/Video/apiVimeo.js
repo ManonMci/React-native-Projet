@@ -15,7 +15,7 @@ export const ApiGetProjects = async () => {
         method: 'GET', // request method
         headers: {
           // header request
-          Authorization: 'Bearer ' + 'ef12d7af78b1489f16489aa55d1e04d5',
+          Authorization: 'Bearer' + 'ef12d7af78b1489f16489aa55d1e04d5',
           'Content-Type': 'application/json', // send JSON in body request
           Accept: 'application/json', // accept response JSON only
         },

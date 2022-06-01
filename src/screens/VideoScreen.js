@@ -14,13 +14,14 @@ import {
 const {width} = Dimensions.get('window');
 const {height} = Dimensions.get('window');
 
-
 import BackgroundVideo from '../components/BackgroundVideo';
 
 import {ApiGetProjects} from '../api/Video/apiVimeo';
 
 import Categorie from '../components/Categories/Categorie';
 import Activities from '../components/Activities/Activities';
+
+//import data2 from '../data/data2.json';
 
 const renderCategories = ({item}) => <Categorie title={item.title} />;
 
@@ -35,9 +36,8 @@ const VideoScreen = ({navigation}) => {
       .then(data => setProjects(data.data))
       .catch(err => console.log(err));
   }, []);
-  console.log(projects.length);
+  console.log(projects.lenght);
   return (
-  
     <ScrollView>
     <View style={style.box1}>
         <Text style={style.titreAtelier}>Interviews, conférence et documentaire</Text>
@@ -57,8 +57,7 @@ const VideoScreen = ({navigation}) => {
               <View style={style.box2} key={index}>
                 <Activities 
                 project={project}
-                title={project.name} 
-                navigation={navigation} 
+                title={project.name}     
                 />
               </View>
             ))}

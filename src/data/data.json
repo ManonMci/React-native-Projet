@@ -1,5 +1,5 @@
 {
-    "activities": [
+    "presentiel": [
       {
         "id": "1",
         "coverUri": "https://vertical-project.com/wp-content/uploads/2022/04/Affiche-PETITE-BULLES.png",
@@ -63,10 +63,12 @@
         "link": ""
       }
     ],
-    "dernierEvenement": [
+    "dernierevenement": [
       {
         "id": "13",
         "coverUri": "https://vertical-project.com/wp-content/uploads/2022/04/Dieu-la-science-les-preuves-olivier-bonnassies.png",
+        "title": "coucou",
+        "subTitle": "Coucou",
         "link": "https://vertical-project.com/dieu-la-science-les-preuves/"
       },
       {

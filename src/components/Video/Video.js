@@ -1,14 +1,11 @@
 import React from 'react';
-import {StyleSheet, Text, View, Video, TouchableOpacity, Video} from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 
 const Video = props => {
-    console.log(props.player_embed_url)
+    //console.log(props.player_embed_url)
   return (
     <View>
       <Text style={style.liste}>{props.title}</Text>
-      <TouchableOpacity>
-        <Video></Video>
-      </TouchableOpacity>
     </View>
   );
 };
@@ -16,7 +13,6 @@ const Video = props => {
 const style = StyleSheet.create({
   liste: {
     fontSize: 20,
-  
   },
 });
 export default Video;

@@ -1,12 +1,7 @@
-import {
-  createDrawerNavigator,
-  DrawerContentScrollView,
-  DrawerItemList,
-  DrawerItem,
-} from '@react-navigation/drawer';
+import {DrawerItemList, DrawerItem} from '@react-navigation/drawer';
 import 'react-native-gesture-handler';
 
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   StyleSheet,
   Image,
@@ -14,6 +9,7 @@ import {
   View,
   Button,
   TouchableOpacity,
+  ActivityIndicator,
 } from 'react-native';
 
 import {
@@ -28,6 +24,8 @@ import {
   Divider,
   Icon,
 } from 'native-base';
+
+import {ToastNotification} from '../VerticalProApplication/src/components/Alert/ToastNotification';
 
 /* Importation navigation */
 import {NavigationContainer, DrawerActions} from '@react-navigation/native';
@@ -47,17 +45,39 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import HomeScreen from './src/screens/HomeScreen';
 import ProfilScreen from './src/screens/ProfilScreen';
 import DetailsScreen from './src/screens/DetailsScreen';
+import LiveScreen from './src/screens/LiveScreen';
 
 import DrawerNavigator from './src/navigation/DrawerNavigator';
 import StackNavigator from './src/navigation/StackNavigator';
+import TabNavigator from './src/navigation/TabNavigator';
+import {
+  createDrawerNavigator,
+  DrawerContentScrollView,
+} from '@react-navigation/drawer';
 
 import {render} from 'react-native/Libraries/Renderer/implementations/ReactNativeRenderer-prod';
+//const Drawer = createDrawerNavigator();
+import {TOAST_SUCCESS} from './src/Constants/constants';
+
+import {storeData, getData} from './src/service/SessionStorage/Storage.js';
+import {useSelector} from 'react-redux';
+import Loader from './src/components/Loader';
 
 const App = () => {
+  const [loading, setLoading] = useState(false);
+  const applicationReducer = useSelector(state => state.applicationReducer);
+  console.log('applicationReducer', applicationReducer);
+
+  ToastNotification({
+    type: TOAST_SUCCESS,
+    text1: 'TEXT1',
+    text2: 'TEXT2',
+  });
   return (
     <NavigationContainer>
       <NativeBaseProvider>
-        <StackNavigator/>
+        {applicationReducer.loading && <Loader />}
+        <DrawerNavigator loading={loading} />
       </NativeBaseProvider>
     </NavigationContainer>
   );

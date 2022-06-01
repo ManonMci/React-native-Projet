@@ -15,12 +15,21 @@ import {
 
 import {apiLogin} from '../api/Auth/apiLogin';
 
-import {storeDataObject, getDataObject} from '../service/SessionStorage/Storage.js';
-
+import {
+  storeDataObject,
+  getDataObject,
+} from '../service/SessionStorage/Storage.js';
+import {ToastNotification} from '../components/Alert/ToastNotification';
 const {width} = Dimensions.get('window');
 const {height} = Dimensions.get('window');
+import {useDispatch} from 'react-redux';
+import {hideLoader, showLoader} from '../store/actions/application.action';
+
+import {TOAST_SUCCESS} from '../Constants/constants';
+import Toast from 'react-native-toast-message';
 
 const Login = ({navigation, route}) => {
+  const dispatch = useDispatch();
   const [formData, setData] = useState({
     username: 'manonmucchielli@hotmail.fr',
     password: 'Chouchou894',
@@ -34,9 +43,16 @@ const Login = ({navigation, route}) => {
     }
     return true;
   };
-
   const onSubmit = async () => {
-    validate() ? console.log('Submitted') : console.log('Validation Failed');
+    await dispatch(showLoader());
+    validate()
+      ? console.log('Submitted')
+      : Toast.show({
+          type: 'error',
+          text1: ' data.text1',
+          text2: 'data.text2',
+          autoHide: true,
+        });
 
     //const isValidate = false
     const isValidate = true;
@@ -44,15 +60,11 @@ const Login = ({navigation, route}) => {
       return false;
     }
     const result = await apiLogin(formData);
-    console.log('result result', result);
     if (!result) {
       return setError('Mauvaise combinaison.');
     }
-    await storeDataObject('@user', result);
-
-    console.log('getDataObject', await getDataObject('@user'));
-    console.log('result', result);
-    navigation.navigate('Accueil');
+    await dispatch(hideLoader());
+    navigation.goBack();
   };
 
   return (

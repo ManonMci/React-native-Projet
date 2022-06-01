@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 
 //import {VideoPlayer} from 'react-native-video-player';
+//import Video from 'react-native-video';
 
 import {ApiGetVideosByFolder} from '../api/Video/apiVimeo';
 
@@ -36,7 +37,7 @@ const DetailsScreen = ({route, navigation}) => {
        
         <Button
           title="Revenir aux catégories"
-          onPress={() => navigation.navigate('TabNavigator')}
+          onPress={() => navigation.goBack()}
         />
       </View>
       <View style={style.container2}>

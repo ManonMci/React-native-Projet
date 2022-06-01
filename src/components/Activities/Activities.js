@@ -4,7 +4,7 @@ import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 
 const getImage = ScreenName => {
   switch (ScreenName) {
-    case 'Accueil':
+    case '':
       return 'home';
     case 'Live':
       return 'video-camera';
@@ -25,6 +25,7 @@ const getImage = ScreenName => {
   }
 };
 
+
 const Activities = props => {
   console.log(props.title)
   return (
@@ -42,7 +43,6 @@ const Activities = props => {
             uri:  
             "https://img.freepik.com/photos-gratuite/gros-plan-femme-meditant-position-du-lotus-au-coucher-du-soleil_637285-5481.jpg?w=1380&t=st=1652807511~exp=1652808111~hmac=5660b686cd14e623e0a5a76839e69958b437c6906f79df411b840a01cfe31b6a"
           }}
-          
           />
         </TouchableOpacity>
       <Text style={style.titre}> {props.title}</Text>

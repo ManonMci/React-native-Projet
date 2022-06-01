@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {StyleSheet} from 'react-native';
 import {
   NativeBaseProvider,
@@ -13,6 +13,7 @@ import {
   HStack,
   Divider,
   Icon,
+  Image,
 } from 'native-base';
 import {getDataObject} from '../service/SessionStorage/Storage.js';
 import {
@@ -38,6 +39,8 @@ import {getArrayValue} from 'cli';
 
 import {logout} from '../screens/LogoutScreen';
 
+import {clearAll} from '../service/SessionStorage/Storage';
+
 const getIcon = ScreenName => {
   switch (ScreenName) {
     case 'Home':
@@ -61,22 +64,23 @@ const getIcon = ScreenName => {
   }
 };
 
-
-
 function CustomDrawerContent(props) {
   return (
     <DrawerContentScrollView {...props} safeArea>
-      <VStack space="6" my="2" mx="1" rightComponent={<Icon color="blue" />}>
-        <Box px="4">
-          <Text bold color="gray.700">
-            Bonjour !
+      <VStack mx="1" rightComponent={<Icon color="blue" />}>
+        <Box>
+          <Text style={styles.imageD}>
+            <Image
+              style={styles.image}
+              source={require('../../assets/images/cube.webp')}
+            />
           </Text>
           {console.log(
             getDataObject('@user').then(response => {
               return response;
             }),
           )}
-          <Text fontSize="14" mt="1" color="gray.500" fontWeight="500"></Text>
+          <Text fontSize="14" color="gray.500" fontWeight="500"></Text>
         </Box>
         <VStack divider={<Divider />} space="5">
           <VStack space="3">
@@ -118,82 +122,89 @@ function CustomDrawerContent(props) {
             ))}
           </VStack>
           <VStack space="5">
-            <Text fontWeight="500" fontSize="14" px="5" color="gray.500">
-              A propos
-            </Text>
-            <VStack space="3">
-              <Pressable px="5" py="3">
-                <HStack space="7" alignItems="center">
-                  <Icon
-                    color="gray.500"
-                    size="5"
-                    type="FontAwesome"
-                    as={<FontAwesome name={'sign-out'} size={32} />}
-                  />
-                  <Text fontWeight="500" color="red.700" onPress={ event =>{
-              
-               
-            }}
-          >
-                    Deconnexion
-                  </Text>
-                </HStack>
-              </Pressable>
-            </VStack>
+            <Text fontWeight="500" fontSize="14" px="5" color="gray.500"></Text>
+            {props.userSession !== null && (
+              <VStack space="10">
+                <Pressable px="5" py="3">
+                  <HStack space="7" alignItems="center">
+                    <Icon
+                      color="gray.500"
+                      size="5"
+                      type="FontAwesome"
+                      as={<FontAwesome name={'sign-out'} size={32} />}
+                    />
+                    <Text
+                      fontWeight="500"
+                      color="red.700"
+                      onPress={async () => await clearAll()}>
+                      Deconnexion
+                    </Text>
+                  </HStack>
+                </Pressable>
+              </VStack>
+            )}
           </VStack>
         </VStack>
       </VStack>
     </DrawerContentScrollView>
   );
 }
+
 function MyDrawer() {
+  const [userSession, setUserSession] = useState({});
+
+  useEffect(() => {
+    const getUserSession = async () => {
+      return await getDataObject('@user');
+    };
+    getUserSession()
+      .then(data => setUserSession(data))
+      .catch(err => console.log(err));
+  }, []);
+
   return (
     <Box safeArea flex={1}>
       <Drawer.Navigator
         screenOptions={{
-          headerStyle: {
-            color: 'blue',
-          },
-          unmountOnBlur: true
+          headerStyle: {},
+          unmountOnBlur: true,
         }}
-        drawerContent={props => <CustomDrawerContent {...props} />}>
+        drawerContent={props => (
+          <CustomDrawerContent {...props} userSession={userSession} />
+        )}>
         <Drawer.Screen
           name="Home"
           component={TabNavigator}
-          options={{
-            headerTitleStyle: {
-              color: 'black',
-           
-          
-            },
-            title: '',
-            headerStyle: {backgroundColor: 'white'},
-          }}
+          options={{title: ''}}
         />
+
         <Drawer.Screen
           name="Live"
           component={LiveScreen}
           options={{title: 'Vertical Project'}}
         />
-        {getDataObject('@user') === null && (
+
+        {userSession === null && (
           <Drawer.Screen
             name="Se connecter"
             component={LoginScreen}
             options={{title: 'Vertical Project'}}
           />
         )}
-        {getDataObject('@user') === null && (
+        {userSession === null && (
           <Drawer.Screen
             name="S'inscrire"
             component={RegisterScreen}
             options={{title: 'Vertical Project'}}
           />
         )}
+
         <Drawer.Screen
           name="Profil"
           component={ProfilScreen}
           options={{title: 'Vertical Project'}}
         />
+
         <Drawer.Screen
           name="Devenez-Adhérent"
           component={AbonnementScreen}
@@ -223,6 +234,15 @@ const styles = StyleSheet.create({
   },
   pressable: {
     backgroundColor: 'grey',
+  },
+  imageD: {
+    height: 100,
+    width: 330,
+  },
+  image: {
+    width: 270,
+    height: 200,
+    resizeMode: 'contain',
   },
 });
 

@@ -12,39 +12,19 @@ import {
   Linking,
 } from 'react-native';
 
-import {WebView} from 'react-native-webview';
+
 import BackgroundEvent from '../components/BackgroundEvent';
 
 import data from '../data/data.json';
+
 import {useNavigation} from '@react-navigation/native';
 
 const {width} = Dimensions.get('window');
 const {height} = Dimensions.get('window');
 
-const Categorie = ({title}) => (
-  <ScrollView>
-  <View>
-    <Text style={style.liste}>{title}</Text>
-  </View>
-  </ScrollView>
-);
-const renderCategories = ({item}) => <Categorie title={item.title} />;
 
-
-/* afficher language */
-const Activities = ({item}) => {
-  const [projects, setProjects] = useState([]);
-
+const Presentiel = ({item}) => {
   const navigation = useNavigation();
-  useEffect(() => {
-    const getProjects = async () => {
-      const getProjectsData = await ApiGetProjects();
-    };
-    getProjects()
-      .then(data => console.log(data))
-      .catch(err => console.log(err));
-  }, []);
-
   return (
     <View>
       <TouchableOpacity
@@ -57,49 +37,66 @@ const Activities = ({item}) => {
         <Image style={style.image} source={{uri: item.coverUri}}
         url={{uri: item.link}}
          />
-        
       </TouchableOpacity>
     </View>
   );
 };
+const renderPresentiel = ({item}) => <Presentiel item={item} />;
 
-const renderActivites = ({item}) => <Activities item={item} />;
+
+/*Evenement à distance */
+const Distanciel = ({item}) => {
+  const navigation = useNavigation();
+  return (
+    <View>
+      <TouchableOpacity
+        onPress={() => 
+          Linking.openURL( {
+            coverUri: item.coverUri,
+            link: item.link,
+          })
+        }>
+        <Image style={style.image2} source={{uri: item.coverUri}}
+         />
+      </TouchableOpacity>
+    </View>
+  );
+};
+const renderDistanciel = ({item}) => <Distanciel item={item} />;
+
+
 function EventScreen({}) {
   return (
-    
     <SafeAreaView style={style.container}>
       <BackgroundEvent/>
         <View>
           <View style={style.titre3}>
-        <Text style={style.titreAtelier}>Ateliers collectifs et conférences</Text>
-        <Text>Ouverts à tous sur inscription</Text>
+             <Text style={style.titreAtelier}>Ateliers collectifs et conférences</Text>
+             <Text>Ouverts à tous sur inscription</Text>
         </View>
         <View style={style.presentiel}>
           <Text style={style.titre}>Presentiel</Text>
-       
-          </View>
         </View>
-        {/*<View style={style.box2}> 
-                  <FlatList
-                      data={data.activities}
-                      renderItem={srcImage}
-                      keyExtractor={item => item.id}
-                      horizontal={true}
-                  />
-                </View>*/}
-        <View style={style.box2}
-        >
-          
+        </View>
+        <View style={style.box2}>
           <FlatList
-            data={data.activities}
-            renderItem={renderActivites}
+            data={data.presentiel}
+            renderItem={renderPresentiel}
             keyExtractor={item => item.id}
             horizontal={true}
-            
           />
         </View>
         <View style={style.presentiel}>
           <Text style={style.titre}>Distanciel</Text>
+        </View>
+        <View style={style.box3}> 
+        <FlatList
+            data={data.distanciel}
+            renderItem={renderDistanciel}
+            keyExtractor={item => item.id}
+            vertical={true}
+            numColumns={2}
+          />
         </View>
     </SafeAreaView>
   );
@@ -117,8 +114,8 @@ const style = StyleSheet.create({
     width,
   },
   image: {
-    width:300,
-    height:250,
+    width:250,
+    height:200,
     resizeMode: 'contain',
     borderRadius: 10,
   },
@@ -135,17 +132,18 @@ const style = StyleSheet.create({
     color:"black",
     fontSize:21,
     alignItems: 'flex-end',
-  
   },
   box2:{
     borderRadius: 10,
+  },
+  box3:{
+    width,
   },
   titre3:{
     color:"rgb(120,120,120)",
     fontSize:22,
     alignItems: 'flex-end',
-    padding:20,
- 
+    marginRight:20,
   },
   presentiel:{
     paddingLeft:13,
@@ -153,6 +151,13 @@ const style = StyleSheet.create({
     flexDirection:"row",
     alignItems: 'center',
 
+  },
+  image2:{
+    width:190,
+    height:190,
+    marginLeft:15,
+    resizeMode: 'contain',
+    borderRadius: 10,
   }
 
 });
