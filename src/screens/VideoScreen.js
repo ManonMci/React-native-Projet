@@ -32,11 +32,12 @@ const VideoScreen = ({navigation}) => {
     const getProjects = async () => {
       return await ApiGetProjects();
     };
+
     getProjects()
       .then(data => setProjects(data.data))
       .catch(err => console.log(err));
   }, []);
-  console.log(projects.lenght);
+  
   return (
     <ScrollView>
     <View style={style.box1}>
@@ -52,7 +53,7 @@ const VideoScreen = ({navigation}) => {
                   />
         </View>*/}
         <View style={style.container2}>
-          {projects.lenght !== 0 &&
+          {projects.length !== 0 &&
             projects.map((project, index) => (
               <View style={style.box2} key={index}>
                 <Activities 

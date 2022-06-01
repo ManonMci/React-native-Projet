@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
-
+import {useNavigation} from '@react-navigation/native';
 
 const getImage = ScreenName => {
   switch (ScreenName) {
@@ -27,12 +27,13 @@ const getImage = ScreenName => {
 
 
 const Activities = props => {
-  console.log(props.title)
+
+  const navigation = useNavigation();
   return (
     <View style={style.container}>
       <TouchableOpacity 
         onPress={() =>
-          props.navigation.navigate('DetailsScreen', {
+          navigation.navigate('DetailsScreen', {
             title: props.title,
             project: props.project
           })
