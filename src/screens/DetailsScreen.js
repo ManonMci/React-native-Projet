@@ -2,18 +2,25 @@ import React, {useState, useEffect} from 'react';
 import {
   StyleSheet,
   SafeAreaView,
+  ActivityIndicator,
   View,
   Text,
   Button,
+  Dimensions,
   ScrollView,
   Image,
 
 } from 'react-native';
 
-//import {VideoPlayer} from 'react-native-video-player';
-//import Video from 'react-native-video';
+import {VideoPlayer} from 'react-native-video-player';
+import Video from 'react-native-video';
 
 import {ApiGetVideosByFolder} from '../api/Video/apiVimeo';
+
+
+const { width,height } = Dimensions.get("window");
+
+
 
 const DetailsScreen = ({route, navigation}) => {
   const [videos, setVideos] = useState([]);
@@ -27,13 +34,19 @@ const DetailsScreen = ({route, navigation}) => {
       .then(data => setVideos(data.data))
       .catch(err => console.log(err));
   }, []);
-  console.log(JSON.stringify(videos[0], null, 4));
+
+  // console.log(JSON.stringify(videos[0], null, 4));
+
+  if(videos.length == 0){
+    return <ActivityIndicator/>
+  }
+
   return (
     <ScrollView>
       <View style={style.container}>
         <Image style={style.image} source={{uri: route.params.coverUri}} />
         <Text>{route.params.title}</Text>
-        {/* <Video style={style.video} source={{uri: route.params.link}} /> */}
+        <Video style={style.video} source={{uri: videos[0].download[0].link}} />
        
         <Button
           title="Revenir aux catégories"
@@ -62,6 +75,10 @@ const style = StyleSheet.create({
     left: 0,
     bottom: 0,
     right: 0,
+  },
+  video: {
+    width: width,
+    height: 300
   },
   image: {
     width: 150,

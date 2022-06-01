@@ -25,7 +25,7 @@ import {
   Icon,
 } from 'native-base';
 
-import {ToastNotification} from '../VerticalProApplication/src/components/Alert/ToastNotification';
+// import {ToastNotification} from '../VerticalProApplication/src/components/Alert/ToastNotification';
 
 /* Importation navigation */
 import {NavigationContainer, DrawerActions} from '@react-navigation/native';
@@ -68,11 +68,11 @@ const App = () => {
   const applicationReducer = useSelector(state => state.applicationReducer);
   console.log('applicationReducer', applicationReducer);
 
-  ToastNotification({
-    type: TOAST_SUCCESS,
-    text1: 'TEXT1',
-    text2: 'TEXT2',
-  });
+  // ToastNotification({
+  //   type: TOAST_SUCCESS,
+  //   text1: 'TEXT1',
+  //   text2: 'TEXT2',
+  // });
   return (
     <NavigationContainer>
       <NativeBaseProvider>
